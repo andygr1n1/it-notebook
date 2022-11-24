@@ -1,0 +1,4 @@
+- right catalog menu
+- new catalog modal window
+- create new catalog api
+- responsive design from start
