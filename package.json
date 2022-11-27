@@ -15,6 +15,7 @@
 		"@fontsource/fira-mono": "^4.5.0",
 		"@neoconfetti/svelte": "^1.0.0",
 		"@playwright/test": "1.25.0",
+		"@rgossiaux/svelte-headlessui": "^1.0.2",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
 		"@types/cookie": "^0.5.1",
@@ -25,8 +26,9 @@
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-svelte3": "^4.0.0",
 		"postcss": "^8.4.19",
-		"prettier": "^2.6.2",
+		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.7.0",
+		"prettier-plugin-tailwindcss": "^0.2.0",
 		"svelte": "^3.46.0",
 		"svelte-check": "^2.7.1",
 		"svelte-motion": "^0.11.4",
@@ -38,6 +40,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@xata.io/client": "^0.21.2",
 		"sass": "^1.56.1"
 	}
 }

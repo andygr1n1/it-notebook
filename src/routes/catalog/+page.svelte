@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Catalog from '../lib/components/catalog/Catalog.svelte';
-	import CatalogArticles from '../lib/components/catalog/catalog-articles/CatalogArticles.svelte';
+	import Catalog from '$lib/components/catalog/Catalog.svelte';
+	import CatalogArticles from '$lib/components/catalog/catalog-articles/CatalogArticles.svelte';
 
 	import type { PageData } from './$types';
 
@@ -15,7 +15,7 @@
 </svelte:head>
 
 <div class="flex">
-	<div>homepage</div>
+	<CatalogArticles />
 </div>
 
 <style>

@@ -1,20 +1,27 @@
 <script>
 	import { page } from '$app/stores';
 	import Logo from '$lib/images/it-note.svg';
+	import { newCatalogStore } from '../stores/NewCatalog.store';
+
+	const openCatalogMenu = () => {
+		newCatalogStore.openNewCatalog();
+	};
 </script>
 
 <header>
-	<nav class='bg-white flex h-full w-full'>
-		<ul class=' flex h-full w-full'>
-			<img src={Logo} alt='it-notebook logo' class="w-10 mx-10"/>
+	<nav class="flex h-full w-full bg-gray-50">
+		<ul class=" flex h-full w-full">
+			<img src={Logo} alt="it-notebook logo" class="mx-10 w-10" />
 
 			<li class={$page.url.pathname === '/' ? 'active' : undefined}>
 				<a href="/">IT Notebook</a>
 			</li>
-			<li class='new-menu'>
-				<a href="/">New catalog</a>
+			<li class="new-menu">
+				<button on:click={openCatalogMenu}>New menu</button>
 			</li>
-			<li class={`flex ml-auto bg-red-500 ${$page.url.pathname === '/about' ? 'active' : undefined}`}>
+			<li
+				class={`ml-auto flex bg-red-500 ${$page.url.pathname === '/about' ? 'active' : undefined}`}
+			>
 				<a href="/about">About</a>
 			</li>
 		</ul>
@@ -42,7 +49,6 @@
 		justify-content: center;
 		align-items: center;
 		list-style: none;
-		background: var(--background);
 		background-size: contain;
 	}
 
@@ -69,15 +75,12 @@
 		&.new-menu:hover {
 			&::before {
 				@apply border-t-red-800;
-
 			}
-
 		}
 	}
 
-
-
-	nav a {
+	nav a,
+	nav button {
 		display: flex;
 		height: 100%;
 		align-items: center;
@@ -91,7 +94,8 @@
 		transition: color 0.2s linear;
 	}
 
-	a:hover {
+	a:hover,
+	button:hover {
 		@apply text-red-800;
 	}
 </style>

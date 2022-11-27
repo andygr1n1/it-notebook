@@ -1,5 +1,6 @@
 <script>
-	import Header from './Header.svelte';
+	import NewCatalog from '$lib/components/new-catalog/NewCatalog.svelte';
+	import Header from '../lib/components/Header.svelte';
 	import './styles.scss';
 </script>
 
@@ -10,9 +11,10 @@
 		<slot />
 	</main>
 
-	<footer>
-		<div class='text-xs font-bold'>andygr1n1 production</div>
+	<footer class="bg-gray-50">
+		<div class="text-xs font-bold ">andygr1n1 production</div>
 	</footer>
+	<NewCatalog />
 </div>
 
 <style>
@@ -26,9 +28,9 @@
 		flex: 1;
 		display: flex;
 		flex-direction: column;
-		padding: 1rem;
+		/* padding: 1rem; */
 		width: 100%;
-		max-width: 64rem;
+		/* max-width: 64rem; */
 		margin: 0 auto;
 		box-sizing: border-box;
 	}
@@ -39,10 +41,6 @@
 		justify-content: center;
 		align-items: center;
 		padding: 12px;
-	}
-
-	footer a {
-		font-weight: bold;
 	}
 
 	@media (min-width: 480px) {
