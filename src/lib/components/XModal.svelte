@@ -1,18 +1,7 @@
 <script type="ts">
 	import { onDestroy, onMount } from 'svelte';
-	import Motion from 'svelte-motion/src/motion/MotionSSR.svelte';
 	import { fade } from 'svelte/transition';
 	import XButton from './XButton.svelte';
-
-	// animations
-	let animate = 'visible';
-
-	const variants = {
-		visible: { opacity: 1 },
-		hidden: { opacity: 0 }
-	};
-
-	export let transition = { ease: 'easeInOut', duration: 0.5 };
 
 	// logic
 	export let onClose: undefined | (() => void) = undefined;
@@ -35,46 +24,34 @@
 
 	// lifecycle
 	onDestroy(() => {
-		animate = 'hidden';
 		document.removeEventListener('click', onCloseHandleClick, true);
 	});
 </script>
 
-<Motion
-	let:motion
-	{animate}
-	{transition}
-	{variants}
-	initial="hidden"
-	hidden="hidden"
-	visible="visible"
+<div
+	out:fade
+	class="xmodal fixed z-50 flex h-full w-full items-center justify-center bg-gray-600/70"
 >
-	<div
-		out:fade
-		use:motion
-		class="xmodal fixed z-50 flex h-full w-full items-center justify-center bg-gray-600/70"
-	>
-		<div class={`flex h-fit min-h-[30%] w-[600px] flex-col rounded-sm bg-white p-5 ${bodyClass}`}>
-			<div class="relative h-10">
-				<div class="font-bold">{title}</div>
-				<button
-					on:click={onClose}
-					class="absolute top-0 right-0 cursor-pointer font-bold transition-all duration-300 hover:text-red-500"
-				>
-					X
-				</button>
-			</div>
-			<div class="flex w-full flex-auto justify-center">
-				<slot name="body" />
-			</div>
-			<div class="flex justify-end gap-10">
-				{#if footer}
-					<XButton onClick={onClose} class="hover:bg-red-500" title="cancel" />
-					<XButton onClick={onOk} class=" bg-green-500 hover:bg-green-600">create</XButton>
-				{:else}
-					<slot name="footer" />
-				{/if}
-			</div>
+	<div class={`flex h-fit min-h-[30%] w-[600px] flex-col rounded-sm bg-white p-5 ${bodyClass}`}>
+		<div class="relative h-10">
+			<div class="font-bold">{title}</div>
+			<button
+				on:click={onClose}
+				class="absolute top-0 right-0 cursor-pointer font-bold transition-all duration-300 hover:text-red-500"
+			>
+				X
+			</button>
+		</div>
+		<div class="flex w-full flex-auto justify-center">
+			<slot name="body" />
+		</div>
+		<div class="flex justify-end gap-10">
+			{#if footer}
+				<XButton onClick={onClose} class="hover:bg-red-500" title="cancel" />
+				<XButton onClick={onOk} class=" bg-green-500 hover:bg-green-600">create</XButton>
+			{:else}
+				<slot name="footer" />
+			{/if}
 		</div>
 	</div>
-</Motion>
+</div>
