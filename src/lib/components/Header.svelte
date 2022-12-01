@@ -13,15 +13,18 @@
 		<ul class=" flex h-full w-full">
 			<img src={Logo} alt="it-notebook logo" class="mx-10 w-10" />
 
-			<li class={$page.url.pathname === '/' ? 'active' : undefined}>
+			<li class={$page.url.pathname === '/catalog' ? 'active' : undefined}>
 				<a href="/">IT Notebook</a>
 			</li>
 			<li class="new-menu">
 				<button on:click={openCatalogMenu}>New menu</button>
 			</li>
 			<li
-				class={`ml-auto flex bg-red-500 ${$page.url.pathname === '/about' ? 'active' : undefined}`}
+				class={`ml-auto flex w-fit ${$page.url.pathname === '/pokergame' ? 'active' : undefined}`}
 			>
+				<a href="/pokergame">Poker Game</a>
+			</li>
+			<li class={` flex bg-red-500 ${$page.url.pathname === '/about' ? 'active' : undefined}`}>
 				<a href="/about">About</a>
 			</li>
 		</ul>
