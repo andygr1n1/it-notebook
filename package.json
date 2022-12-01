@@ -13,6 +13,7 @@
 	},
 	"devDependencies": {
 		"@fontsource/fira-mono": "^4.5.0",
+		"@iconify/svelte": "^3.0.1",
 		"@neoconfetti/svelte": "^1.0.0",
 		"@playwright/test": "1.25.0",
 		"@rgossiaux/svelte-headlessui": "^1.0.2",
@@ -40,7 +41,9 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@types/uuid": "^9.0.0",
 		"@xata.io/client": "^0.21.2",
-		"sass": "^1.56.1"
+		"sass": "^1.56.1",
+		"uuid": "^9.0.0"
 	}
 }
