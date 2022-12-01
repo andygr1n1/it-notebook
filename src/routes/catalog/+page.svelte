@@ -1,12 +1,11 @@
 <script lang="ts">
-	import Catalog from '$lib/components/catalog/Catalog.svelte';
 	import CatalogArticles from '$lib/components/catalog/catalog-articles/CatalogArticles.svelte';
 
-	import type { PageData } from './$types';
+	// import type { PageData } from './$types';
 
-	export let data: PageData;
+	// export let data: PageData;
 
-	console.log('data', data);
+	// console.log('data on page', data);
 </script>
 
 <svelte:head>

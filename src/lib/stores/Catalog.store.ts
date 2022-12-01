@@ -1,4 +1,6 @@
-import { writable } from 'svelte/store';
+import { writable, type Writable } from 'svelte/store';
+
+export const selectedCatalog: Writable<string> = writable('');
 
 const createStore = () => {
 	const { update, subscribe } = writable({
@@ -29,4 +31,5 @@ export const catalogStore = createStore();
 export interface ICatalog {
 	id: string;
 	title: string | null | undefined;
+	is_active_route?: false;
 }

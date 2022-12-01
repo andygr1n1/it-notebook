@@ -1,6 +1,6 @@
 <script>
 </script>
 
-<div class="flex">
+<div class="flex h-full w-full">
 	<slot />
 </div>

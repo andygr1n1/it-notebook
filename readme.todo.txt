@@ -1,5 +1,5 @@
-1. fetch menus in different way, because they are not loading on "hard routing"
-2. create actime menu in dependency of current param id.
+# 1. fetch menus in different way, because they are not loading on "hard routing"
+2. create active menu in dependency of current param id.
 3. make cool Menu filtering
 4. delete menus (settings icon in menu panel -> popover with delete item possibility)
 5. edit menu title possibilty
