@@ -1,8 +1,6 @@
 <script lang="ts">
-	import CatalogArticlesNavMenu from './catalog-articles-navmenu/CatalogArticlesNavMenu.svelte';
 </script>
 
-<div class="flex flex-col w-full h-full">
-	<CatalogArticlesNavMenu />
-	<div class="p-5">articles!!!</div>
+<div class="flex h-full w-full flex-col">
+	<div class="p-5">search!!! and all articles list</div>
 </div>
