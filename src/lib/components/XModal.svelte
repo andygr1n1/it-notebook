@@ -29,6 +29,7 @@
 </script>
 
 <div
+	in:fade
 	out:fade
 	class="xmodal fixed z-50 flex h-full w-full items-center justify-center bg-gray-600/70"
 >
@@ -45,7 +46,7 @@
 		<div class="flex w-full flex-auto justify-center">
 			<slot name="body" />
 		</div>
-		<div class="flex justify-end gap-10">
+		<div class="flex justify-end gap-10 py-5">
 			{#if footer}
 				<XButton onClick={onClose} class="hover:bg-red-500" title="cancel" />
 				<XButton onClick={onOk} class=" bg-green-500 hover:bg-green-600">create</XButton>

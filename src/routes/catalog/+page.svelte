@@ -13,7 +13,7 @@
 	<meta name="it notebook" content="andygr1n1 it notebook" />
 </svelte:head>
 
-<div class="flex">
+<div class="flex h-full w-full">
 	<CatalogArticles />
 </div>
 

@@ -1,0 +1,6 @@
+https://planningpokeronline.com/
+
+GraphQL Subscriptions using Svelte
+https://gist.github.com/praveenweb/3a81b3673211844067841c08b5e8fa17
+
+https://the-guild.dev/graphql/yoga-server/docs/features/subscriptions

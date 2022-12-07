@@ -2,15 +2,15 @@ import { writable } from 'svelte/store';
 import { v4 as uuidv4 } from 'uuid';
 const createStore = () => {
     const { update, subscribe } = writable({
-        is_catalog_open: false,
+        is_user_menu_open: false,
         user_name: '',
         user_id: ''
     });
-    const closeUserMenu = () => update((store) => ({ ...store, is_catalog_open: false }));
-    const openUserMenu = () => update((store) => ({ ...store, is_catalog_open: true }));
+    const closeUserMenu = () => update((store) => ({ ...store, is_user_menu_open: false }));
+    const openUserMenu = () => update((store) => ({ ...store, is_user_menu_open: true }));
     const createUser = () => {
         update((store) => {
-            return { ...store, is_catalog_open: false, user_id: uuidv4() };
+            return { ...store, is_user_menu_open: false, user_id: uuidv4() };
         });
         closeUserMenu();
     };

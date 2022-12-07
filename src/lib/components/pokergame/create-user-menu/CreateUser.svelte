@@ -13,7 +13,7 @@
 	};
 </script>
 
-{#if $pokerUserStore.is_catalog_open}
+{#if $pokerUserStore.is_user_menu_open}
 	<XModal {onClose} {onOk} title={modalTitle}>
 		<div slot="body" class="flex w-full">
 			<input
