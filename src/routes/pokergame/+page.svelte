@@ -8,7 +8,12 @@
 	import { pokerUserStore } from '$lib/stores/pockergame/CreateUser.store';
 	import { reveal_cards } from '$lib/stores/pockergame/Pockergame.store';
 
+	import { useQuery } from '@sveltestack/svelte-query';
+	import { fethUserByPk, type IUserByPkResponse } from '$lib/graphql/queries/fethUserByPk.query';
+
 	let estimationDays = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+	let user_id = 'f192b78e-399e-4fc5-9676-ce0bf65b220b';
 
 	const openUserMenu = () => {
 		pokerUserStore.openUserMenu();
@@ -24,6 +29,16 @@
 	const revealCards = () => {
 		reveal_cards.set(true);
 	};
+
+	const user = useQuery<IUserByPkResponse | undefined, { message: string }>(
+		['heroes_by_pk', user_id],
+		() => fethUserByPk(user_id),
+		{
+			enabled: !!user_id
+		}
+	);
+
+	console.log('user', $user);
 </script>
 
 <div class="flex h-full w-full flex-col">

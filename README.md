@@ -20,3 +20,8 @@ https://app.xata.io/
 xata init --db https://Andrew-s-workspace-c59hq8.us-east-1.xata.sh/db/it-notebook-db
 it-notebook-api-key
 
+
+<!-- rte -->
+https://bytemd.js.org/playground/
+https://github.com/bytedance/bytemd
+https://bytemd.js.org/#installation

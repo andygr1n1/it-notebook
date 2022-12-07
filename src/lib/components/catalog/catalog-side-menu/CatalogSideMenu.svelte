@@ -2,13 +2,13 @@
 	import { goto } from '$app/navigation';
 	import { catalogStore, selectedCatalog } from '$lib/stores/Catalog.store';
 	import CatalogFilter from '../CatalogFilter.svelte';
-	import { setupActiveCatalog } from './setupActiveCatalog';
+	// import { setupActiveCatalog } from './setupActiveCatalog';
 
 	// console.log('pagepath', new URL(window.location?.pathname));
-	$: setupActiveCatalog($selectedCatalog);
+	// $: setupActiveCatalog($selectedCatalog);
 </script>
 
-<nav class=" w-[240px] min-w-[240px] bg-white ">
+<nav class=" h-full w-[240px] min-w-[240px] bg-white ">
 	<CatalogFilter />
 	<ul class="p-5">
 		{#each $catalogStore.catalogs as catalog}
@@ -37,7 +37,7 @@
 		}
 
 		&.active {
-			@apply font-bold text-red-700 transition-all duration-300;
+			@apply text-red-700 transition-all duration-300;
 		}
 	}
 </style>

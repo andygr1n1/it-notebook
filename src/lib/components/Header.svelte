@@ -1,6 +1,7 @@
 <script>
 	import { page } from '$app/stores';
 	import Logo from '$lib/images/it-note.svg';
+	import { selectedCatalog } from '$lib/stores/Catalog.store';
 	import { newCatalogStore } from '../stores/NewCatalog.store';
 
 	const openCatalogMenu = () => {
@@ -14,7 +15,7 @@
 			<img src={Logo} alt="it-notebook logo" class="mx-10 w-10" />
 
 			<li class={$page.url.pathname === '/catalog' ? 'active' : undefined}>
-				<a href="/">IT Notebook</a>
+				<a on:click={() => selectedCatalog.update(() => '')} href="/">IT Notebook</a>
 			</li>
 			<li class="new-menu">
 				<button on:click={openCatalogMenu}>New menu</button>

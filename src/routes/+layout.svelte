@@ -1,4 +1,5 @@
 <script>
+	import NewArticle from '$lib/components/new-article/NewArticle.svelte';
 	import NewCatalog from '$lib/components/new-catalog/NewCatalog.svelte';
 	import Header from '../lib/components/Header.svelte';
 	import './styles.scss';
@@ -15,6 +16,7 @@
 		<div class="text-xs font-bold ">andygr1n1 production</div>
 	</footer>
 	<NewCatalog />
+	<NewArticle />
 </div>
 
 <style>
