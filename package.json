@@ -1,6 +1,7 @@
 {
 	"name": "it-notebook",
 	"version": "0.0.1",
+	"license": "X11",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
