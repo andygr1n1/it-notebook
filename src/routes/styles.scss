@@ -29,6 +29,15 @@ body > div > div {
 	@apply h-full;
 }
 
+input,
+input:focus,
+input:hover,
+textarea,
+textarea:focus,
+textarea:hover {
+	@apply outline-none;
+}
+
 body {
 	min-height: 100vh;
 	margin: 0;

@@ -1,22 +1,30 @@
-// import { createCatalogMutation } from '$lib/xata-api/mutations/CreateCatalog.mutation';
+// import { createArticleMutation } from '$lib/xata-api/mutations/CreateArticle.mutation';
+import { removeObjectWithId } from '$lib/helpers/removeObjectWithId';
+import { uniq } from 'lodash-es';
 import { writable } from 'svelte/store';
+import { createTagsFromString } from './NewArticle.helper';
+import type { INewArticleStore, ITag } from './NewArticle.interface';
 
 const createStore = () => {
-	const { update, subscribe } = writable({
+	const { update, subscribe } = writable<INewArticleStore>({
 		new_article_modal_is_open: false,
 		new_article_title: '',
 		new_article_description: '',
-		new_article_content: ''
+		new_article_content: '',
+		tags: [
+			{ id: '1', tag_title: 'svelte' },
+			{ id: '2', tag_title: 'react' }
+		],
+		new_article_tags_input: ''
 	});
 
 	const closeNewArticleMenu = () =>
 		update((store) => ({ ...store, new_article_modal_is_open: false }));
 
 	const openNewArticleMenu = () => {
-		console.log('click to open');
 		update((store) => ({ ...store, new_article_modal_is_open: true }));
 	};
-	// const createNewCatalog = () => {
+	// const createNewArticle = () => {
 	// 	update((store) => {
 	// 		createCatalogMutation(store.new_catalog_title);
 	// 		return { ...store, is_catalog_open: false, new_catalog_title: '' };
@@ -43,6 +51,39 @@ const createStore = () => {
 			new_article_content: e.detail.value ?? ''
 		}));
 
+	const onChangeTagsInput = (e: Event & { currentTarget: EventTarget & HTMLInputElement }) => {
+		return update((store) => ({
+			...store,
+			new_article_tags_input: (e.target as HTMLInputElement)?.value ?? ''
+		}));
+	};
+
+	const addTags = () => {
+		update((store) => ({
+			...store,
+			tags: uniq([...store.tags, ...createTagsFromString(store.new_article_tags_input)]),
+			new_article_tags_input: ''
+		}));
+	};
+
+	const generateTags = () => {
+		addTags();
+	};
+
+	const generateTagsOnPressEnter = (e: KeyboardEvent) => {
+		if (e.key === 'Enter') {
+			addTags();
+		}
+	};
+
+	const removeTag = (id: string) => {
+		update((store) => ({
+			...store,
+			tags: removeObjectWithId<ITag>(store.tags, id),
+			new_article_tags_input: ''
+		}));
+	};
+
 	return {
 		subscribe,
 		update,
@@ -50,7 +91,11 @@ const createStore = () => {
 		openNewArticleMenu,
 		onChangeNewArticleTitle,
 		onChangeNewArticleDescription,
-		onChangeNewArticleContent
+		onChangeNewArticleContent,
+		onChangeTagsInput,
+		generateTags,
+		generateTagsOnPressEnter,
+		removeTag
 	};
 };
 

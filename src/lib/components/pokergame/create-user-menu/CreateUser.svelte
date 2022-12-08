@@ -20,7 +20,7 @@
 				class="my-10 h-10 w-full border p-2"
 				value={$pokerUserStore.user_name}
 				placeholder="catalog title"
-				on:change={pokerUserStore.onChangeUserName}
+				on:input={pokerUserStore.onChangeUserName}
 			/>
 		</div>
 	</XModal>
