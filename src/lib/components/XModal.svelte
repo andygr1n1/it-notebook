@@ -33,7 +33,9 @@
 	out:fade
 	class="xmodal fixed z-50 flex h-full w-full items-center justify-center bg-gray-600/70"
 >
-	<div class={`flex h-fit min-h-[30%] w-[600px] flex-col rounded-sm bg-white p-5 ${bodyClass}`}>
+	<div
+		class={`relative flex h-fit min-h-[30%] w-[600px] flex-col rounded-sm bg-white p-5 ${bodyClass}`}
+	>
 		<div class="relative h-10">
 			<div class="font-bold">{title}</div>
 			<button

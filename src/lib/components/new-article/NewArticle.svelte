@@ -2,6 +2,9 @@
 	import { newArticleStore } from '$lib/stores/NewArticle.store';
 	import XModal from '../XModal.svelte';
 	import RichText from '../quill-editor/RichText.svelte';
+	import Icon from '@iconify/svelte';
+	import Tags from './Tags.svelte';
+	import TagsInput from './TagsInput.svelte';
 
 	let modalTitle = 'New article';
 
@@ -16,29 +19,24 @@
 
 {#if $newArticleStore.new_article_modal_is_open}
 	<XModal {onClose} {onOk} title={modalTitle}>
-		<div slot="body" class="flex max-h-[80vh] w-full flex-col gap-6 overflow-auto py-5">
+		<div slot="body" class=" flex max-h-[80vh] w-full flex-col gap-6 overflow-auto py-5">
+			<Tags />
 			<div>
 				<div>Title</div>
 				<input
 					class="my-4 h-10 w-full border p-2"
 					value={$newArticleStore.new_article_title}
-					placeholder="article title"
+					placeholder=""
 					on:change={newArticleStore.onChangeNewArticleTitle}
 				/>
 			</div>
-			<div>
-				<div>Tags</div>
-				<input
-					class="my-4 h-10 w-full border bg-gray-200 p-2"
-					placeholder="write and insert tags"
-				/>
-			</div>
+			<TagsInput />
 			<div>
 				<div>Description</div>
 				<textarea
 					class="my-4 min-h-[100px] w-full border p-2"
 					value={$newArticleStore.new_article_description}
-					placeholder="article description"
+					placeholder=""
 					on:change={newArticleStore.onChangeNewArticleDescription}
 				/>
 			</div>
