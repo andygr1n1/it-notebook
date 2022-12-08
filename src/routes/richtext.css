@@ -680,7 +680,17 @@ span.CodeMirror-selectedtext {
 	font-size: 12px;
 }
 
+/* custom */
+
 .RichTextSmall .CodeMirror,
 .RichTextSmall .bytemd {
 	height: 150px;
+}
+
+.bytemd-toolbar-icon[bytemd-tippy-path='1'] {
+	display: none;
+}
+
+.bytemd-fullscreen .bytemd-toolbar-icon[bytemd-tippy-path='1'] {
+	display: inline-block;
 }

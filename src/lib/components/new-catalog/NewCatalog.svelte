@@ -14,13 +14,13 @@
 </script>
 
 {#if $newCatalogStore.is_catalog_open}
-	<XModal {onClose} {onOk} title={modalTitle} >
+	<XModal {onClose} {onOk} title={modalTitle}>
 		<div slot="body" class="flex w-full">
 			<input
 				class="my-10 h-10 w-full border p-2"
 				value={$newCatalogStore.new_catalog_title}
 				placeholder="catalog title"
-				on:change={newCatalogStore.onChangeNewCatalogTitle}
+				on:input={newCatalogStore.onChangeNewCatalogTitle}
 			/>
 		</div>
 	</XModal>

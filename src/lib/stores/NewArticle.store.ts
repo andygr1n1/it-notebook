@@ -51,11 +51,12 @@ const createStore = () => {
 			new_article_content: e.detail.value ?? ''
 		}));
 
-	const onChangeTagsInput = (e: Event & { currentTarget: EventTarget & HTMLInputElement }) =>
-		update((store) => ({
+	const onChangeTagsInput = (e: Event & { currentTarget: EventTarget & HTMLInputElement }) => {
+		return update((store) => ({
 			...store,
 			new_article_tags_input: (e.target as HTMLInputElement)?.value ?? ''
 		}));
+	};
 
 	const addTags = () => {
 		update((store) => ({

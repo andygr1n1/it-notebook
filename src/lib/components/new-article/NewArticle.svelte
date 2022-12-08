@@ -27,7 +27,7 @@
 					class="my-4 h-10 w-full border p-2"
 					value={$newArticleStore.new_article_title}
 					placeholder=""
-					on:change={newArticleStore.onChangeNewArticleTitle}
+					on:input={newArticleStore.onChangeNewArticleTitle}
 				/>
 			</div>
 			<TagsInput />
@@ -37,7 +37,7 @@
 					class="my-4 min-h-[100px] w-full border p-2"
 					value={$newArticleStore.new_article_description}
 					placeholder=""
-					on:change={newArticleStore.onChangeNewArticleDescription}
+					on:input={newArticleStore.onChangeNewArticleDescription}
 				/>
 			</div>
 			<div>
