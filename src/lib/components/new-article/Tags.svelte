@@ -1,8 +1,10 @@
 <script lang="ts">
 	import { newArticleStore } from '$lib/stores/NewArticle.store';
+
+	export let className = '';
 </script>
 
-<ul class="absolute right-[-320px] top-4 flex h-fit w-[300px] max-w-[300px] flex-wrap gap-5">
+<ul class={`${className}`}>
 	{#each $newArticleStore.tags as tag}
 		<li
 			class="group relative flex h-10 min-w-[50px] items-center justify-center rounded-sm bg-white p-1 shadow-xl"
